@@ -39,7 +39,6 @@ export default class CarteiraScreen extends React.Component {
                   </View>
             </View>
             {/*Layout do SALDO------------------------------------- */}
-
             <Text style={styles.textoTransacoes}>Transações</Text>
             {/*Layout do CARD-------------------------------------- */}
             <View style={styles.containerCard}>
