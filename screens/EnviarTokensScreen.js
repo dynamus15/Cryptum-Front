@@ -9,12 +9,16 @@ import {
   View,
   Button
 } from "react-native";
-import { Icon } from "react-native-elements";
+import ActionBar from "react-native-action-bar";
 import { TextInput } from "react-native-gesture-handler";
 
-export default class CarteiraScreen extends React.Component {
+export default class EnviarTokensScreen extends React.Component {
   static navigationOptions = {
-    header: null
+    title:'Enviar',
+    headerStyle: {
+      backgroundColor: '#0A1B2A',
+    },
+    headerTintColor: '#fff',
   };
 
   render() {
@@ -22,16 +26,6 @@ export default class CarteiraScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          {/*Toolbar-------------------------------------------- */}
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={{ height: 80, backgroundColor: "#0A1B2A" }}>
-              <Icon iconStyle={styles.icon} name="arrow-back" color="#ffff" onPress={() => this.props.navigation.goBack()} />
-            </View>
-            <View style={{ height: 80, width: 320, backgroundColor: "#0A1B2A" }}>
-              <Text style={styles.tituloCarteira}>Enviar</Text>
-            </View>
-          </View>
-          {/*Toolbar-------------------------------------------- */}
           <View style={styles.card}>
             <View style={styles.cardContent}>
               <Text style={styles.tituloCard}>Digite a quantidade de CPTs que você deseja enviar:</Text>
@@ -80,7 +74,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#E6E6E6",
   },
 
   textoSaldo: {
