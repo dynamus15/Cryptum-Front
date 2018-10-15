@@ -2,19 +2,42 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import TabBarIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
-//import TabBarIcon from '../components/TabBarIcon';
 import SettingsScreen from '../screens/SettingsScreen';
 import CarteiraScreen from '../screens/CarteiraScreen';
 import EnviarScreen from '../screens/EnviarScreen';
 import EnviarTokensScreen from '../screens/EnviarTokensScreen';
 import TokensEnviadosScreen from '../screens/TokensEnviadosScreen';
 
+{/* Animação entre as TELAS------------------------------*/}
+const FadeTransition = (index, position) => {
+  const sceneRange = [index - 1, index];
+  const outputOpacity = [0,1];
+  const transition = position.interpolate({
+    inputRange: sceneRange,
+    outputRange: outputOpacity
+  });
+  return{
+    opacity: transition
+  }
+}
+const NavigationConfig = () => {
+  return{
+    screenInterpolator: (sceneProps) => {
+      const position = sceneProps.position;
+      const scene = sceneProps.scene;
+      const index = scene.index;
+
+      return FadeTransition(index, position);
+    }
+  }
+}
+{/* Animação entre as TELAS------------------------------*/}
 
 const CarteiraStack = createStackNavigator({
   Carteira: CarteiraScreen
-}, {initialRouteName: 'Carteira'}
-);
+});
 
 CarteiraStack.navigationOptions = {
   tabBarLabel: 'Carteira',
@@ -22,10 +45,12 @@ CarteiraStack.navigationOptions = {
     let iconName;
     if (Platform.OS === 'ios') {
       iconName = `wallet`;
+      return <SimpleLineIcons name={iconName} size={30} color={tintColor}/>;
     } else if (Platform.OS === 'android'){
       iconName = `wallet`;
+      return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
     }
-    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+    
   },
   tabBarOptions:{
    activeTintColor: '#3366ff',
@@ -37,7 +62,8 @@ const EnviarStack = createStackNavigator({
   Enviar: EnviarScreen,
   EnviarTokens: EnviarTokensScreen,
   TokensEnviados: TokensEnviadosScreen,
-}, {initialRouteName: 'Enviar'}
+}, {initialRouteName: 'Enviar'},
+{transitionConfig: NavigationConfig}
 );
 
 EnviarStack.navigationOptions = {

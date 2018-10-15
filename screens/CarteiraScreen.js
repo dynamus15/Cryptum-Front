@@ -12,11 +12,10 @@ import {
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-import { MonoText } from '../components/StyledText';
-
 export default class CarteiraScreen extends React.Component {
   static navigationOptions = {
     header: null,
+    gestureEnabled: true,
   };
 
   render() {
