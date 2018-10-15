@@ -40,7 +40,7 @@ export default class CarteiraScreen extends React.Component {
             </View>
             {/*Layout do SALDO------------------------------------- */}
             <Text style={styles.textoTransacoes}>Transações</Text>
-            
+
             {/*Layout do CARD-------------------------------------- */}
             <View style={styles.containerCard}>
               <View style={styles.cardContent}>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
 
   textoTransacoes:{
     flex:1,
-    fontSize: 18,
+    fontSize: 14,
     color: '#A4A4A4',
     textAlign: 'right',
     paddingRight: 20,

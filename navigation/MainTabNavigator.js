@@ -1,8 +1,9 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import TabBarIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import TabBarIcon from '../components/TabBarIcon';
+//import TabBarIcon from '../components/TabBarIcon';
 import SettingsScreen from '../screens/SettingsScreen';
 import CarteiraScreen from '../screens/CarteiraScreen';
 import EnviarScreen from '../screens/EnviarScreen';
@@ -17,16 +18,19 @@ const CarteiraStack = createStackNavigator({
 
 CarteiraStack.navigationOptions = {
   tabBarLabel: 'Carteira',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+  tabBarIcon: ({ focused , tintColor}) => {
+    let iconName;
+    if (Platform.OS === 'ios') {
+      iconName = `wallet`;
+    } else if (Platform.OS === 'android'){
+      iconName = `wallet`;
+    }
+    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+  },
+  tabBarOptions:{
+   activeTintColor: '#3366ff',
+   inactiveTintColor: '#c0c0c0',
+  },
 };
 
 const EnviarStack = createStackNavigator({
@@ -38,12 +42,19 @@ const EnviarStack = createStackNavigator({
 
 EnviarStack.navigationOptions = {
   tabBarLabel: 'Enviar',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
-    />
-  ),
+  tabBarIcon: ({ focused , tintColor}) => {
+    let iconName;
+    if (Platform.OS === 'ios') {
+      iconName = `arrow-top-right`;
+    } else if (Platform.OS === 'android'){
+      iconName = `arrow-top-right`;
+    }
+    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+  },
+  tabBarOptions:{
+   activeTintColor: '#3366ff',
+   inactiveTintColor: '#c0c0c0',
+  },
 };
 
 const ReceberStack = createStackNavigator({
@@ -52,12 +63,19 @@ const ReceberStack = createStackNavigator({
 
 ReceberStack.navigationOptions = {
   tabBarLabel: 'Receber',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
+  tabBarIcon: ({ focused , tintColor}) => {
+    let iconName;
+    if (Platform.OS === 'ios') {
+      iconName = `arrow-bottom-left`;
+    } else if (Platform.OS === 'android'){
+      iconName = `arrow-bottom-left`;
+    }
+    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+  },
+  tabBarOptions:{
+   activeTintColor: '#3366ff',
+   inactiveTintColor: '#c0c0c0',
+  },
 };
 
 const PagarStack = createStackNavigator({
@@ -66,12 +84,40 @@ const PagarStack = createStackNavigator({
 
 PagarStack.navigationOptions = {
   tabBarLabel: 'Pagar',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
+  tabBarIcon: ({ focused , tintColor}) => {
+    let iconName;
+    if (Platform.OS === 'ios') {
+      iconName = `coins`;
+    } else if (Platform.OS === 'android'){
+      iconName = `coin`;
+    }
+    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+  },
+  tabBarOptions:{
+   activeTintColor: '#3366ff',
+   inactiveTintColor: '#c0c0c0',
+  },
+};
+
+const SettingsStack = createStackNavigator({
+  Mais: SettingsScreen,
+});
+
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Mais',
+  tabBarIcon: ({ focused , tintColor}) => {
+    let iconName;
+    if (Platform.OS === 'ios') {
+      iconName = `settings`;
+    } else if (Platform.OS === 'android'){
+      iconName = `settings`;
+    }
+    return <TabBarIcon name={iconName} size={30} color={tintColor}/>;
+  },
+  tabBarOptions:{
+   activeTintColor: '#3366ff',
+   inactiveTintColor: '#c0c0c0',
+  },
 };
 
 export default createBottomTabNavigator({
@@ -79,4 +125,5 @@ export default createBottomTabNavigator({
   EnviarStack,
   ReceberStack,
   PagarStack,
+  SettingsStack,
 });
