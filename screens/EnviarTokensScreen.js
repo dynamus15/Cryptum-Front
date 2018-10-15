@@ -63,12 +63,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    elevation: 1
+    elevation: 1,
   },
 
   cardContent: {
     height: 220,
-    width: 335,
+    marginHorizontal:12,
     backgroundColor: "#ffff",
     borderRadius: 6
   },

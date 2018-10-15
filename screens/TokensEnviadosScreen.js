@@ -32,9 +32,6 @@ export default class CarteiraScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          {/*Toolbar-------------------------------------------- */}
-        
-          {/*Toolbar-------------------------------------------- */}
           <View style={{flex:1, flexDirection:'column', justifyContent:'center', alignItems:'center',}}>
             <View style={{paddingVertical:50, paddingTop:150}}>
                 <Image style={styles.imagemCheck} source={require('../assets/images/checked.png')}></Image>

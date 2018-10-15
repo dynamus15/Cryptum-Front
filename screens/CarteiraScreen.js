@@ -11,7 +11,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
@@ -25,14 +24,14 @@ export default class CarteiraScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container}>
             {/*Layout do SALDO------------------------------------- */}
-            <View style={{flex:1, flexDirection:'column', justifyContent:'center', alignItems:'stretch',}}>
-                <View style={{height:270, backgroundColor: '#0A1B2A'}}>
+            <View style={styles.flexContainer}>
+                <View style={styles.layoutSaldo}>
                 <ImageBackground source={require('../assets/images/coins-wallpaper3.png')} imageStyle={styles.imagemMoeda} style={styles.imagemMoedaContainer}>
                     <Icon iconStyle={styles.icon} name='refresh' color='#ffff'/>
                     <Text style={styles.tituloCarteira}>Carteira</Text>
                     <Text style={styles.textoSaldo}>Saldo Disponível</Text>
-                    <View style={{flex:1, flexDirection:'column', justifyContent:'flex-start', alignItems:'center',}}>
-                        <View style={{height:70, backgroundColor: '#0B2F3A', borderRadius:10}}>
+                    <View style={styles.flexContainerCenter}>
+                        <View style={styles.layoutNumeroSaldo}>
                             <Text style={styles.saldoDinheiro}>100,03 CPT</Text>
                         </View> 
                     </View>
@@ -40,9 +39,24 @@ export default class CarteiraScreen extends React.Component {
                   </View>
             </View>
             {/*Layout do SALDO------------------------------------- */}
-        </ScrollView>
 
-        
+            <Text style={styles.textoTransacoes}>Transações</Text>
+            {/*Layout do CARD-------------------------------------- */}
+            <View style={styles.containerCard}>
+              <View style={styles.cardContent}>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.tituloCard}>Recebido</Text>
+                  <Text style={styles.saldoCard}>10,23 CPT</Text>
+                </View>
+                <Text style={styles.descricaoCard}>TxHash:</Text>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.footerCard}>25 de Set, 2018, 13:58</Text>
+                  <Text style={styles.statusCard}>Completo</Text>
+                </View>
+              </View>
+            </View>
+             {/*Layout do CARD-------------------------------------- */}
+        </ScrollView>
       </View>
     );
   }
@@ -50,7 +64,110 @@ export default class CarteiraScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#E6E6E6',
+  },
+
+  containerCard:{
+    flex: 1,
+    flexDirection: "row",
+    elevation: 1,
+    justifyContent: 'space-between',
+  },
+
+  cardContent: {
+    flex:1,
+    marginHorizontal:12,
+    backgroundColor: "#ffff",
+    borderRadius: 5,
+  },
+
+  tituloCard:{
+    flex:1,
+    fontSize: 14,
+    color: '#000',
+    textAlign: 'left',
+    paddingHorizontal:10,
+    paddingVertical:10,
+  },
+
+  saldoCard:{
+    flex:1,
+    fontSize: 14,
+    color: '#33cc33',
+    textAlign: 'right',
+    paddingHorizontal:10,
+    paddingVertical:10,
+  },
+
+  descricaoCard:{
+    flex:1,
+    fontSize: 14,
+    color: '#A4A4A4',
+    textAlign: 'left',
+    paddingHorizontal:10,
+  },
+
+  footerCard:{
+    paddingVertical:8,
+    flex:1,
+    fontSize: 14,
+    color: '#A4A4A4',
+    textAlign: 'left',
+    paddingHorizontal:10,
+  },
+
+  statusCard:{
+    paddingVertical:8,
+    flex:1,
+    fontSize: 14,
+    color: '#A4A4A4',
+    textAlign: 'right',
+    paddingHorizontal:10,
+  },
+
+
+  textoCard:{
+    fontSize: 18,
+    color: '#A4A4A4',
+    paddingHorizontal:15,
+    textAlign: 'right',
+    flex:1
+  },
+
+  textoTransacoes:{
+    flex:1,
+    fontSize: 18,
+    color: '#A4A4A4',
+    textAlign: 'right',
+    paddingRight: 20,
+    paddingVertical:10,
+  },
+
+  flexContainer:{
+    flex:1, 
+    flexDirection:'column', 
+    justifyContent:'center', 
+    alignItems:'stretch',
+  },
+
+  layoutNumeroSaldo:{
+    height:70, 
+    backgroundColor: '#0B2F3A', 
+    borderRadius:10
+  },
+
+  flexContainerCenter:{
+    flex:1, 
+    flexDirection:'column', 
+    justifyContent:'flex-start', 
+    alignItems:'center',
+  },
+
+  layoutSaldo:{
+    height:270, 
+    backgroundColor: '#0A1B2A', 
+    borderBottomRightRadius:12, 
+    borderBottomLeftRadius:12
   },
 
 imagemMoeda:{
@@ -59,7 +176,6 @@ imagemMoeda:{
 
   imagemMoedaContainer:{
     height: 270 ,
-    
   },
 
   textoSaldo: {
