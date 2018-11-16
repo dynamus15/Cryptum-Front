@@ -1,14 +1,12 @@
 import React from 'react';
 import {
-  Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
-  Button,
   ImageBackground,
+  Animated,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
@@ -55,11 +53,46 @@ export default class CarteiraScreen extends React.Component {
               </View>
             </View>
              {/*Layout do CARD-------------------------------------- */}
+
+             {/*Layout do CARD-------------------------------------- */}
+            <View style={styles.containerCard}>
+              <View style={styles.cardContent}>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.tituloCard}>Recebido</Text>
+                  <Text style={styles.saldoCard}>10,23 CPT</Text>
+                </View>
+                <Text style={styles.descricaoCard}>TxHash:</Text>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.footerCard}>25 de Set, 2018, 13:58</Text>
+                  <Text style={styles.statusCard}>Completo</Text>
+                </View>
+              </View>
+            </View>
+             {/*Layout do CARD-------------------------------------- */}
+
+             {/*Layout do CARD-------------------------------------- */}
+            <View style={styles.containerCard}>
+              <View style={styles.cardContent}>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.tituloCard}>Recebido</Text>
+                  <Text style={styles.saldoCard}>10,23 CPT</Text>
+                </View>
+                <Text style={styles.descricaoCard}>TxHash:</Text>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={styles.footerCard}>25 de Set, 2018, 13:58</Text>
+                  <Text style={styles.statusCard}>Completo</Text>
+                </View>
+              </View>
+            </View>
+             {/*Layout do CARD-------------------------------------- */}
+             
         </ScrollView>
       </View>
     );
   }
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -71,6 +104,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     elevation: 1,
     justifyContent: 'space-between',
+    paddingVertical: 5,
   },
 
   cardContent: {

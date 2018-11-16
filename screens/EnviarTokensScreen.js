@@ -29,7 +29,7 @@ export default class EnviarTokensScreen extends React.Component {
           <View style={styles.card}>
             <View style={styles.cardContent}>
               <Text style={styles.tituloCard}>Digite a quantidade de CPTs que você deseja enviar:</Text>
-              <TextInput placeholder="Quantidade de CPTs. Ex: 15,63" selectionColor="#000" underlineColorAndroid="transparent" style={styles.textInput}/>
+              <TextInput placeholder="Quantidade de CPTs. Ex: 15,63" selectionColor="#000" underlineColorAndroid="transparent" keyboardType="numeric" style={styles.textInput}/>
               <View style={styles.botaoContainer}>
                 <View style={styles.botaoProximo}>
                   <Button title="Enviar" color="#FF8000" onPress={() => navigate('TokensEnviados')}/>
