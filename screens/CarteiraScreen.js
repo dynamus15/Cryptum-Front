@@ -19,7 +19,6 @@ export default class CarteiraScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        
             {/*Layout do SALDO------------------------------------- */}
             <View style={styles.flexContainer}>
                 <View style={styles.layoutSaldo}>
@@ -35,7 +34,8 @@ export default class CarteiraScreen extends React.Component {
                   </ImageBackground>
                   </View>
             </View>
-            <ScrollView style={styles.container}>
+            
+            <ScrollView>
             {/*Layout do SALDO------------------------------------- */}
             <Text style={styles.textoTransacoes}>Transações</Text>
 
@@ -198,10 +198,10 @@ const styles = StyleSheet.create({
   },
 
   layoutSaldo:{
-    height:270, 
+    height:290, 
     backgroundColor: '#0A1B2A', 
-    borderBottomRightRadius:12, 
-    borderBottomLeftRadius:12
+    borderBottomRightRadius: 12,
+    borderBottomLeftRadius: 12
   },
 
 imagemMoeda:{
@@ -209,7 +209,7 @@ imagemMoeda:{
 },
 
   imagemMoedaContainer:{
-    height: 270 ,
+    height: 290,
   },
 
   textoSaldo: {
