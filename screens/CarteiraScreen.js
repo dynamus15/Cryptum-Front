@@ -198,7 +198,6 @@ const styles = StyleSheet.create({
   },
 
   layoutSaldo:{
-    height:290, 
     backgroundColor: '#0A1B2A', 
     borderBottomRightRadius: 12,
     borderBottomLeftRadius: 12
@@ -209,7 +208,7 @@ imagemMoeda:{
 },
 
   imagemMoedaContainer:{
-    height: 290,
+    height: "100%",
   },
 
   textoSaldo: {
